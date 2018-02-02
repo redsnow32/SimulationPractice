@@ -69,7 +69,14 @@ Setting up your create React App
 10. Create the components you'll need for your app. Remember that if you're using Redux, you'll need to             subscribe to the store with the ... import { connect } from 'react-redux'
         - import the functions at the top of the page by using the following flow
             - import { function } from '../../reducer'
-            
+    - Create your function of mapStateToProps in order to get the information back to the reducer. This will        also have to have the object you're sending to the reducer with the function that's created in the         reducer. 
+        
+        function mapStateToProps(state) {
+            const {cost, downPayment} = state
+            return {cost, downPayment}
+}
+
+export default connect(mapStateToProps,{updateCost, updateDown})(WizardSix)
     
 ////////////////////////////////////////////////////////////////////////////////////////////////
 Setting up your server
